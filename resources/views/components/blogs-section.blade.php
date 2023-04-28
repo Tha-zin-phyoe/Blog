@@ -8,15 +8,17 @@
            <button class="btn btn-primary" type="submit">Search </button>
         </form>
 </section>
-<!-- Blogs -->
-<section class="p-5 ">
-   <div class="row">
-@if ($blogs->count())
-@foreach ($blogs as $blog)
-<x-blog-card :blog="$blog" />
-@endforeach
-@else <p>Page Not Found</p>
-@endif
-{{$blogs->links()}}
-</div>
- </section>
+
+<section>
+    <div class="row flex-nowrap">
+        @if ($blogs->count())
+        @foreach ($blogs as $blog)
+         <x-blog-card :blog="$blog" />
+
+        @endforeach
+        @else
+            <p>Page not found</p>
+        @endif
+        {{$blogs->links()}}
+    </div>
+</section>

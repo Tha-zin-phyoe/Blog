@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-6 mx-auto text-center">
                 <img
-                    src=""
+                    src="/storage/{{$blog->image}}"
                     class="card-img-top"
                     alt="..."
                 />

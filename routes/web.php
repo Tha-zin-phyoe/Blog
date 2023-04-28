@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CommentsController;
@@ -23,9 +24,12 @@ Route::post('/blogs/{blog:slug}/subscription', [BlogController::class, 'subscrip
 // Admin
 
 // Route::get('/admin/blogs/create', [BlogController::class, 'create'])->middleware('isAdmin');
- Route::get('/admin/blogs/create', [BlogController::class, 'create']);
+ Route::get('/admin/blogs/create', [AdminController::class, 'create']);
+ Route::get('/admin/blogs', [AdminController::class, 'index']);
 // Route::post('/admin/blogs/create', [BlogController::class, 'store'])->middleware('isAdmin');
-Route::post('/admin/blogs/create', [BlogController::class, 'store']);
+Route::post('/admin/blogs/create', [AdminController::class, 'store']);
+Route::delete('/admin/blogs/{blog:slug}/delete', [AdminController::class, 'destory']);
+Route::get('/admin/blogs/{blog:slug}/edit', [AdminController::class, 'edit']);
 
 
 // Route::get('/categories/{category:slug}', function (Category $category) {

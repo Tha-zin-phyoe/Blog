@@ -1,10 +1,18 @@
 <x-layout>
     <div class="container">
         <div class="row">
-            <div class="col-md-8 mx-auto">
+            <div class="col-md-4 mt-5">
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="/admin/blogs">Dashboard</a></li>
+                    <li class="list-group-item"><a href="/admin/blogs/create">Create Blogs</a></li>
+
+                  </ul>
+
+            </div>
+            <div class="col-md-8">
                 <h3 class="text-primary text-center my-2">Create Blog Form</h3>
                 <div class="card p-4 my-3 shadow-sm">
-                    <form method="POST" action="/admin/blogs/create" enctype="multipart/form-datas">
+                    <form method="POST" action="/admin/blogs/create" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="title" class="form-label">Title</label>
