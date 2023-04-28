@@ -7,8 +7,10 @@
             </ul>
         </div>
         <div class="col-md-8">
-            <form method="POST" action="/admin/blogs/create" enctype="multipart/form-data">
+            <h3>Update Blogs</h3>
+            <form method="POST" action="/admin/blogs/{{$blog->slug}}/update" enctype="multipart/form-data">
                 @csrf
+                @method('PATCH')
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
                     <input required name="title" type="text" class="form-control" id="title"
@@ -40,7 +42,8 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="image">Upload Image</label>
-                    <input type="file" class="form-control" id="image" name="image" value="{{ old('intro') }}">
+                    <input type="file" class="form-control" id="image" name="image" value="{{ old('image') }}">
+                    <img src="/storage/{{$blog->image}}" alt="" width="100px" height="100px"
                     @error('body')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror

@@ -7,6 +7,9 @@
                     src="/storage/{{$blog->image}}"
                     class="card-img-top"
                     alt="..."
+                    width="200px"
+                    height="200px"
+                    object-fit="cover"
                 />
                 <h3 class="my-3">{{$blog->title}}</h3>
                 <div>

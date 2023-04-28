@@ -30,6 +30,7 @@ Route::post('/blogs/{blog:slug}/subscription', [BlogController::class, 'subscrip
 Route::post('/admin/blogs/create', [AdminController::class, 'store']);
 Route::delete('/admin/blogs/{blog:slug}/delete', [AdminController::class, 'destory']);
 Route::get('/admin/blogs/{blog:slug}/edit', [AdminController::class, 'edit']);
+Route::patch('/admin/blogs/{blog:slug}/update', [AdminController::class, 'update']);
 
 
 // Route::get('/categories/{category:slug}', function (Category $category) {
