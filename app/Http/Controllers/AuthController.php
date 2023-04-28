@@ -29,6 +29,33 @@ class AuthController extends Controller
         return redirect('/')->with('success', 'Welcome Dear, '.$user->name);
     }
 
+    public function login()
+    {
+        return view('register.login');
+    }
+
+    public function post_login()
+    {
+        //validation
+        $formData=request()->validate([
+            'email'=>['required','email','max:255',Rule::exists('users', 'email')],
+            'password'=>['required','min:8','max:255']
+        ], [
+            'email.required'=>'We need your email address.',
+            'password.min'=>'Password should be more than 8 characters.'
+        ]);
+
+        //if user credentials correct -> redirect home
+        if (auth()->attempt($formData)) {
+            return redirect('/')->with('success', 'Welcome back');
+        } else {
+            //if user credentials fail -> redirect back to form with error
+            return redirect()->back()->withErrors([
+                'email'=>'User Credentials Wrong'
+            ]);
+        }
+    }
+
     public function logout()
     {
         auth()->logout();
