@@ -22,15 +22,12 @@ Route::post('/blogs/{blog:slug}/subscription', [BlogController::class, 'subscrip
 
 
 // Admin
-
-// Route::get('/admin/blogs/create', [BlogController::class, 'create'])->middleware('isAdmin');
- Route::get('/admin/blogs/create', [AdminController::class, 'create']);
+ Route::get('/admin/blogs/create', [AdminController::class, 'create'])->middleware('isAdmin');
  Route::get('/admin/blogs', [AdminController::class, 'index']);
-// Route::post('/admin/blogs/create', [BlogController::class, 'store'])->middleware('isAdmin');
-Route::post('/admin/blogs/create', [AdminController::class, 'store']);
-Route::delete('/admin/blogs/{blog:slug}/delete', [AdminController::class, 'destory']);
-Route::get('/admin/blogs/{blog:slug}/edit', [AdminController::class, 'edit']);
-Route::patch('/admin/blogs/{blog:slug}/update', [AdminController::class, 'update']);
+Route::post('/admin/blogs/create', [AdminController::class, 'store'])->middleware('isAdmin');
+Route::delete('/admin/blogs/{blog:slug}/delete', [AdminController::class, 'destory'])->middleware('isAdmin');
+Route::get('/admin/blogs/{blog:slug}/edit', [AdminController::class, 'edit'])->middleware('isAdmin');
+Route::patch('/admin/blogs/{blog:slug}/update', [AdminController::class, 'update'])->middleware('isAdmin');
 
 
 // Route::get('/categories/{category:slug}', function (Category $category) {

@@ -19,11 +19,12 @@ class DatabaseSeeder extends Seeder
     {
 
 
-        $frontend=Category::factory()->create(['name'=>'frontend']);
-        $backend=Category::factory()->create(['name'=>'backend']);
-
-        Blog::factory(3)->create(['category_id'=>$frontend->id]);
-        Blog::factory(3)->create(['category_id'=>$backend->id]);
+        $life=Category::factory()->create(['name'=>'life']);
+        $work=Category::factory()->create(['name'=>'work']);
+        $travel=Category::factory()->create(['name'=>'travel']);
+        Blog::factory(3)->create(['category_id'=>$life->id]);
+        Blog::factory(3)->create(['category_id'=>$work->id]);
+        Blog::factory(3)->create(['category_id'=>$travel->id]);
 
 
  Comment::factory(10)->create();
